@@ -1,0 +1,341 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.digiwin.dappratice1</groupId>
+    <artifactId>modules</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>modules</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <api.version>5.2.0.6011</api.version>
+        <nexus.ip>https://repo.digiwincloud.com.cn/maven</nexus.ip>
+        <spring.version>5.0.5.RELEASE</spring.version>
+        <DWQueue.version>1.05</DWQueue.version>
+        <revision>1.1.0.0</revision>
+        <dwgson.version>2.8.6</dwgson.version>
+        <bm.version>5.2.0.72</bm.version>
+    </properties>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Nexus Snapshots Repository</name>
+            <url>${nexus.ip}/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <name>Nexus Release Repository</name>
+            <url>${nexus.ip}/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>releases</id>
+            <name>Nexus Releases Repository</name>
+            <url>${nexus.ip}/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
+    <modules>
+
+        <module>sales</module>
+        <module>basic</module>
+    </modules>
+
+    <dependencies>
+        <!-- Third party -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180130</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-instrument</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <!-- 2021-11-16 Ma Chao 改成用我們維護的gson -->
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-gson</artifactId>
+            <version>${dwgson.version}</version>
+        </dependency>
+        <!-- DAP API platform -->
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-eai</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-service</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-container</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-dao</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-metadata</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-iam</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-resourcebundle</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-schedule</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-serviceclient</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-module</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-json</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-redis</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-httpclient</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-datapermission</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-persistconn</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-utility</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-iot</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-exception</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-platformadapter</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-springcontext</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-autoconfigure-container</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-service-restful</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-service-eai</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.digiwin.bm</groupId>-->
+        <!--            <artifactId>bm-spring-boot-starter</artifactId>-->
+        <!--            <version>${bm.version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.digiwin.bm</groupId>-->
+        <!--            <artifactId>bm-spring-boot-starter</artifactId>-->
+        <!--            <version>5.2.0.72</version>-->
+        <!--        </dependency>-->
+        <!-- 此依賴會造成個別模組下target/dependency都有一份運行包，導致佔用過多空間，先拿掉 -->
+        <!-- 之前會加上運行包的依賴是為了優化打包時不用再額外寫wget指令，這個作法沒考慮到上述問題-->
+        <!--<dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-appbackend</artifactId>
+            <version>${api.version}</version>
+            <type>war</type>
+        </dependency> -->
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-modular-resource</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-modular-service</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digiwin</groupId>
+            <artifactId>dwapiplatform-log-operation</artifactId>
+            <version>${api.version}</version>
+        </dependency>
+        <!-- DAP middleware DMC -->
+        <!--
+          2021/12/19 Chuck 升級到5.1.0.0
+          中間件5.1.0.0的release內容如下
+         ●从5.1.0.0版本开始，dmc-sdk开始支持多租户:文件上传、下载、文件信息操作(只针对文件相关操作)
+         ●之前版本，可以在文件上传的时候通过FileInfo设定tenantId字段，但是下载、文件信息操作等无法控制
+        -->
+        <dependency>
+            <groupId>com.digiwin.dap.middleware</groupId>
+            <artifactId>dmc-sdk</artifactId>
+            <version>5.1.0.0</version>
+        </dependency>
+        <!-- unit test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+
+                    <compilerArgument>-parameters</compilerArgument>
+                    <testCompilerArgument>-parameters</testCompilerArgument>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeGroupIds>com.digiwin</includeGroupIds>
+                            <includeArtifactIds>dwapiplatform-appbackend</includeArtifactIds>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
